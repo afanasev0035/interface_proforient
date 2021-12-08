@@ -71,17 +71,17 @@
      <string>Вернуться</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>180</y>
+      <y>220</y>
       <width>800</width>
-      <height>60</height>
+      <height>30</height>
      </rect>
     </property>
     <property name="placeholderText">
-     <string>Введите ответ</string>
+     <string>Введите текст</string>
     </property>
    </widget>
   </widget>
