@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>552</width>
+    <height>419</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Система профориентации</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>193</x>
+      <y>65</y>
+      <width>166</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Профориентированность</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>24</x>
+      <y>65</y>
+      <width>136</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Структура интелекта</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>416</x>
+      <y>65</y>
+      <width>88</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Тип личности</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>95</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Айзенк</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>211</x>
+      <y>95</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Дж. Голонда</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>395</x>
+      <y>95</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Томас-Килманн</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>145</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Кеттелл</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>395</x>
+      <y>145</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Юнга</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>211</x>
+      <y>145</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Е. А. Климова</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_7">
+    <property name="geometry">
+     <rect>
+      <x>211</x>
+      <y>195</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Г. В. Рязапкина </string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_8">
+    <property name="geometry">
+     <rect>
+      <x>395</x>
+      <y>195</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Бриггс-Майерс</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>27</x>
+      <y>195</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Векслер</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>171</x>
+      <y>15</y>
+      <width>211</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Типы тестирования:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_10">
+    <property name="geometry">
+     <rect>
+      <x>26</x>
+      <y>300</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Блок интелекта</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>394</x>
+      <y>300</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Блок личности</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>300</y>
+      <width>130</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Блок профориент.</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>171</x>
+      <y>250</y>
+      <width>211</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>16</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Результаты:</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::MarkdownText</enum>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_13">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>505</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Обобщенный результат</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
