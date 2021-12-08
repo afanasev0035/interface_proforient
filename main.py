@@ -62,6 +62,7 @@ def open_test(text):
 
     ui_2.pushButton_2.clicked.connect(returnToMain)
     ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
+    ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
 
 ui.pushButton.clicked.connect(lambda: open_test(ui.pushButton.text()))
 
