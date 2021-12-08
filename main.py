@@ -1,3 +1,4 @@
+from os import error
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from format import *
@@ -27,6 +28,11 @@ def check_window(text):
         MainWindow.show()
         return 0
 
+def select_win_type(text):
+    if text == "Айзенк":
+        return Ui_Writen_test()
+    else:
+        return Ui_Test()
 
 def open_test(text):
 
@@ -35,7 +41,7 @@ def open_test(text):
 
     global Test 
     Test = QtWidgets.QMainWindow()
-    ui_2 = Ui_Test()
+    ui_2 = select_win_type(text)
     ui_2.setupUi(Test, text, Tests[0])
     Test.show()
     Tests.append(Test)
@@ -50,25 +56,12 @@ def open_test(text):
         else:
             Tests[Tests[0]].show()
     
-    def record_db(ui, index, text):
-        if (ui_2.radioButton_2.isChecked() or ui_2.radioButton.isChecked()):
-            if ui_2.radioButton.isChecked():
-                input_answer(text, index, True)    
-            else:
-                input_answer(text, index, False)
+    def record(ui, index, text):
+        if (0 == ui.record_db(index, text)):
             open_test(text)
-        else:
-            error = QMessageBox()
-            error.setWindowTitle("Ошибка")
-            error.setText("Выберите вариант ответа")
-            error.setIcon(QMessageBox.Warning)
-            error.setStandardButtons(QMessageBox.Ok)
-        error.exec_()
-
-
 
     ui_2.pushButton_2.clicked.connect(returnToMain)
-    ui_2.pushButton.clicked.connect(lambda: record_db(ui_2, Tests[0], text))
+    ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
 
 ui.pushButton.clicked.connect(lambda: open_test(ui.pushButton.text()))
 

@@ -1,16 +1,15 @@
-from typing import Counter, Text
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
 from db_test import *
 
-class Ui_Test(object):
-    def setupUi(self, Test, text, index):
-        Test.setObjectName(text)
-        Test.resize(910, 349)
-        self.centralwidget = QtWidgets.QWidget(Test)
+class Ui_Writen_test(object):
+    def setupUi(self, Writen_test, text, index):
+        Writen_test.setObjectName(text)
+        Writen_test.resize(910, 349)
+        self.centralwidget = QtWidgets.QWidget(Writen_test)
         self.centralwidget.setObjectName("centralwidget")
         self.label = QtWidgets.QLabel(self.centralwidget)
-        self.label.setGeometry(QtCore.QRect(20, 37, 800, 101))
+        self.label.setGeometry(QtCore.QRect(20, 37, 800, 121))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -29,44 +28,33 @@ class Ui_Test(object):
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(670, 280, 88, 34))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.radioButton = QtWidgets.QRadioButton(self.centralwidget)
-        self.radioButton.setGeometry(QtCore.QRect(20, 190, 800, 22))
-        self.radioButton.setText("")
-        self.radioButton.setObjectName("radioButton")
-        self.radioButton_2 = QtWidgets.QRadioButton(self.centralwidget)
-        self.radioButton_2.setGeometry(QtCore.QRect(20, 220, 800, 22))
-        self.radioButton_2.setText("")
-        self.radioButton_2.setObjectName("radioButton_2")
-        Test.setCentralWidget(self.centralwidget)
+        self.lineEdit = QtWidgets.QLineEdit(self.centralwidget)
+        self.lineEdit.setGeometry(QtCore.QRect(20, 220, 800, 30))
+        self.lineEdit.setObjectName("textEdit")
+        Writen_test.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(Test, text, index)
-        #self.record_db(self, index, text)
-        QtCore.QMetaObject.connectSlotsByName(Test)
+        self.retranslateUi(Writen_test, text, index)
+        QtCore.QMetaObject.connectSlotsByName(Writen_test)
 
-    def retranslateUi(self, Test, text, index):
+    def retranslateUi(self, Writen_test, text, index):
         _translate = QtCore.QCoreApplication.translate
         db = str_db()
         db.init(text, index)
-        Test.setWindowTitle(_translate("Test", text))
+        Writen_test.setWindowTitle(_translate("Test", text))
         self.label.setText(_translate("Test", db.quest))
-        self.radioButton.setText(_translate("Test", db.answer1))
-        self.radioButton_2.setText(_translate("Test", db.answer2))
-        self.pushButton.setText(_translate("Test", "Вперед"))
-        self.pushButton_2.setText(_translate("Test", "Вернуться"))
-
+        self.pushButton.setText(_translate("Writen_test", "Вперед"))
+        self.pushButton_2.setText(_translate("Writen_test", "Вернуться"))
+        self.lineEdit.setPlaceholderText(_translate("Writen_test", "Введите текст"))
+    
     def record_db(self, index, text):
-        if (self.radioButton_2.isChecked() or self.radioButton.isChecked()):
-            if self.radioButton.isChecked():
-                input_answer(text, index, True)    
-            else:
-                input_answer(text, index, False)
+        if (self.lineEdit.text() != ""):
+            print(self.lineEdit.text())
             return 0
         else:
             error = QMessageBox()
             error.setWindowTitle("Ошибка")
-            error.setText("Выберите вариант ответа")
+            error.setText("Введите ответ")
             error.setIcon(QMessageBox.Warning)
             error.setStandardButtons(QMessageBox.Ok)
             error.exec_()
             return (-1)
-
