@@ -51,8 +51,8 @@ def open_test(text):
             Tests[Tests[0]].show()
     
     def record_db(ui, index, text):
-        if (ui_2.checkBox.isChecked() or ui_2.checkBox_2.isChecked()):
-            if ui_2.checkBox.isChecked():
+        if (ui_2.radioButton_2.isChecked() or ui_2.radioButton.isChecked()):
+            if ui_2.radioButton.isChecked():
                 input_answer(text, index, True)    
             else:
                 input_answer(text, index, False)
