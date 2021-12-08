@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from test_vybor_otveta import *
-from check_db import *
+from format.test_format import *
+from db_test import *
 import sys
 
 class Ui_MainWindow(object):

@@ -10,7 +10,7 @@ class str_db(object):
         self.count = 0
         self.index = index
         
-        con = sqlite3.connect('db/test_ayzek')
+        con = sqlite3.connect('db_test/test_ayzek')
         cur = con.cursor()
 
         cur.execute("SELECT question FROM ayzeka WHERE id = '%s'" % index)
@@ -30,7 +30,7 @@ class str_db(object):
 
 def input_answer(text, index, answer):
         
-    con = sqlite3.connect('db/test_ayzek')
+    con = sqlite3.connect('db_test/test_ayzek')
     cur = con.cursor()
     if (answer):
         cur.execute("UPDATE ayzeka SET check1=1, check2=0 WHERE id = '%s'" % index)
@@ -42,7 +42,7 @@ def input_answer(text, index, answer):
     con.close()
 
 def count_record(text):
-    con = sqlite3.connect('db/test_ayzek')
+    con = sqlite3.connect('db_test/test_ayzek')
     cur = con.cursor()
     cur.execute("SELECT COUNT(*) as count FROM ayzeka")
     return cur.fetchall()[0][0]

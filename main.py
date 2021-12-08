@@ -1,8 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QMessageBox
-from test_vybor_otveta import *
-from main_int import *
-from check_db import *
+from format import *
+from db_test import *
+
 import sys
 
 app = QtWidgets.QApplication(sys.argv)

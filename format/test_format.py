@@ -1,7 +1,6 @@
 from typing import Counter, Text
 from PyQt5 import QtCore, QtGui, QtWidgets
-from check_db import*
-
+from db_test import *
 
 class Ui_Test(object):
     def setupUi(self, Test, text, index):
