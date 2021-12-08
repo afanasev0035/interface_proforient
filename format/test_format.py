@@ -46,7 +46,7 @@ class Ui_Test(object):
     def retranslateUi(self, Test, text, index):
         _translate = QtCore.QCoreApplication.translate
         db = str_db()
-        db.init(text, index)
+        db.init_v1(text, index)
         Test.setWindowTitle(_translate("Test", text))
         self.label.setText(_translate("Test", db.quest))
         self.radioButton.setText(_translate("Test", db.answer1))

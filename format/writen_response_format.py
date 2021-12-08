@@ -39,7 +39,7 @@ class Ui_Writen_test(object):
     def retranslateUi(self, Writen_test, text, index):
         _translate = QtCore.QCoreApplication.translate
         db = str_db()
-        db.init(text, index)
+        db.init_v2(text, index)
         Writen_test.setWindowTitle(_translate("Test", text))
         self.label.setText(_translate("Test", db.quest))
         self.pushButton.setText(_translate("Writen_test", "Вперед"))
@@ -48,7 +48,7 @@ class Ui_Writen_test(object):
     
     def record_db(self, index, text):
         if (self.lineEdit.text() != ""):
-            print(self.lineEdit.text())
+            input_text(text, index, self.lineEdit.text())
             return 0
         else:
             error = QMessageBox()

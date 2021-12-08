@@ -30,9 +30,9 @@ def check_window(text):
 
 def select_win_type(text):
     if text == "Айзенк":
-        return Ui_Writen_test()
-    else:
         return Ui_Test()
+    if text == "Кеттелл":
+        return Ui_Writen_test()
 
 def open_test(text):
 
@@ -62,8 +62,9 @@ def open_test(text):
 
     ui_2.pushButton_2.clicked.connect(returnToMain)
     ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
-    ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
+
 
 ui.pushButton.clicked.connect(lambda: open_test(ui.pushButton.text()))
+ui.pushButton_4.clicked.connect(lambda: open_test(ui.pushButton_4.text()))
 
 sys.exit(app.exec_())
