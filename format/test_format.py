@@ -40,7 +40,6 @@ class Ui_Test(object):
         Test.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(Test, text, index)
-        #self.record_db(self, index, text)
         QtCore.QMetaObject.connectSlotsByName(Test)
 
     def retranslateUi(self, Test, text, index):

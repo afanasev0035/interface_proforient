@@ -1,0 +1,71 @@
+from typing import Counter, Text
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QMessageBox, QVBoxLayout
+from db_test import *
+
+class Ui_Result(object):
+     def setupUi(self, Result, text):
+        Result.setObjectName(text)
+        Result.resize(687, 413)
+        self.centralwidget = QtWidgets.QWidget(Result)
+        self.centralwidget.setObjectName("centralwidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.centralwidget)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setText("")
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
+        self.label.setObjectName("label")
+        font = QtGui.QFont()
+        font.setFamily("Noto Sans Adlam")
+        font.setPointSize(16)
+        self.label.setFont(font)
+        self.verticalLayout.addWidget(self.label)
+        self.scrollArea = QtWidgets.QScrollArea(self.centralwidget)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName("scrollArea")
+        self.scrollAreaWidgetContents = QtWidgets.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 671, 333))
+        self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.frame = QtWidgets.QFrame(self.scrollAreaWidgetContents)
+        self.frame.setMinimumSize(QtCore.QSize(0, 300))
+        self.frame.setMaximumSize(QtCore.QSize(634, 16777215))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.frame.setFont(font)
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.frame)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.label_2 = QtWidgets.QLabel(self.frame)
+        font = QtGui.QFont()
+        font.setFamily("Noto Sans Adlam")
+        font.setPointSize(10)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignTop)
+        self.label_2.setObjectName("label_2")
+        self.label_2.setWordWrap(True)
+        self.verticalLayout_3.addWidget(self.label_2)
+        self.verticalLayout_2.addWidget(self.frame)
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout.addWidget(self.scrollArea)
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setObjectName("pushButton")
+        self.verticalLayout.addWidget(self.pushButton)
+        Result.setCentralWidget(self.centralwidget)
+
+        self.retranslateUi(Result, text)
+        QtCore.QMetaObject.connectSlotsByName(Result)
+
+     def retranslateUi(self, Result, text):
+        _translate = QtCore.QCoreApplication.translate
+        Result.setWindowTitle(_translate("Result", text))
+        self.pushButton.setText(_translate("Result", "Назад"))
+        db = str_db()
+        db.init_v3(text)
+        self.label_2.setText(_translate("Result", db.concl))
+        if (text != "Обобщенный результат"):
+            text = "Вывод: " + text
+        self.label.setText(_translate("Result", text))

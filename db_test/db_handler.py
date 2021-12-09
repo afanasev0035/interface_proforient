@@ -47,6 +47,16 @@ class str_db(object):
         cur.close()
         con.close()
 
+    def init_v3(self, text):
+        con = sqlite3.connect('db_test/db.db')
+        cur = con.cursor()
+
+        cur.execute("SELECT conclusion FROM Выводы")
+        self.concl = cur.fetchall()[0][0]
+
+        cur.close()
+        con.close()
+
 def input_answer(text, index, answer):
         
     con = sqlite3.connect('db_test/db.db')

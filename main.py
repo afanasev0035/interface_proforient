@@ -63,8 +63,24 @@ def open_test(text):
     ui_2.pushButton_2.clicked.connect(returnToMain)
     ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
 
+def open_result(text):
+    global Test
+    Test = QtWidgets.QMainWindow()
+    ui_2 =  Ui_Result()
+    ui_2.setupUi(Test, text)
+    Test.show()
+    Tests.append(Test)
+    MainWindow.close()
+
+    def returnToMain():
+        Test.close()
+        MainWindow.show()
+
+    ui_2.pushButton.clicked.connect(returnToMain)
 
 ui.pushButton.clicked.connect(lambda: open_test(ui.pushButton.text()))
 ui.pushButton_4.clicked.connect(lambda: open_test(ui.pushButton_4.text()))
+ui.pushButton_10.clicked.connect(lambda: open_result(ui.pushButton_10.text()))
+ui.pushButton_13.clicked.connect(lambda: open_result(ui.pushButton_13.text()))
 
 sys.exit(app.exec_())
