@@ -1,86 +1,136 @@
-from os import error
+from os import error, name
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QMessageBox
+from PyQt5.QtWidgets import QMessageBox, QApplication, QMainWindow
 from format import *
 from db_test import *
-
 import sys
 
-app = QtWidgets.QApplication(sys.argv)
-MainWindow = QtWidgets.QMainWindow()
-ui = Ui_MainWindow()
-ui.setupUi(MainWindow)
-MainWindow.show()
-global Tests
-Tests = [0]
+from format.test_format import question
 
-def check_window(text):
-    if (Tests[0] == 0):
-        MainWindow.close()
-        return 1
-    elif (Tests[0] < count_record(text)):
-        Tests[Tests[0]].close()
-        return 1
-    else:
-        Tests[Tests[0]].close()
-        Tests.clear()
-        Tests.append(0)
-        MainWindow.show()
-        return 0
+test_name_intell = ('Айзенк', 'Кеттел', 'Векслер')
+test_name_prof = ('Дж. Голонда', 'Е. А. Климова', 'Г. В. Рязапкина')
+test_name_lich = ('Томас-Килманн', 'Юнга', 'Бриггс-Майерс')
+test_name_all = ('Айзенк', 'Кеттел', 'Векслер', 'Дж. Голонда', 'Е. А. Климова', 'Г. В. Рязапкина', 'Томас-Килманн', 'Юнга', 'Бриггс-Майерс')
 
-def select_win_type(text):
-    if text == "Айзенк":
-        return Ui_Test()
-    if text == "Кеттелл":
-        return Ui_Writen_test()
 
-def open_test(text):
+app = QApplication(sys.argv)
+Authindow = QMainWindow()
+ui = Ui_auth_window()
+ui.setupUi(Authindow)
+Authindow.show()
+global user_id
 
-    if (check_window(text) == 0):
+
+def check_user_id(auth):
+    user_id = check_user(auth)
+    if user_id == -1:
         return
+    else:
+        open_win(user_id)
 
-    global Test 
-    Test = QtWidgets.QMainWindow()
-    ui_2 = select_win_type(text)
-    ui_2.setupUi(Test, text, Tests[0])
-    Test.show()
-    Tests.append(Test)
-    Tests[0] = Tests[0] + 1
- 
-    def returnToMain():
-        Tests.pop()
-        Tests[0] = Tests[0] - 1
-        Test.close()
-        if (Tests[0] == 0):
-            MainWindow.show()
+def open_win(user_id):   
+    global Mainindow
+    Mainindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(Mainindow)
+    Authindow.close()
+    Mainindow.show()
+
+    def init_test(name_test):
+        quest = question()
+        quest.init(name_test, Mainindow)
+        quest.test_id = init_test_id(user_id, name_test, quest)
+        Mainindow.close()
+        create_test(quest)
+        
+
+    def next_test(quest, Test, ui):
+        if ui.record_db(quest, user_id) != 0:
+            return
+
+        if quest.check_num() != 0:
+            if quest.back_test_id != -1:
+                quest.test_id =  quest.back_test_id
+                delete_record_db(quest)
+                Mainindow.show()
+            Test.close()
         else:
-            Tests[Tests[0]].show()
+            create_test(quest)
+        
+    def back_test(quest, Test):
+        quest.quest_id = quest.quest_id - 2
+        if quest.first_test() != 0:
+            create_test(quest)
+        else:
+            delete_record_db(quest)
+            Mainindow.show()
+            Test.close()
+            return
     
-    def record(ui, index, text):
-        if (0 == ui.record_db(index, text)):
-            open_test(text)
+    def create_test(quest):
+        quest.get_question()
+        if quest.status == 1:
+            return
+        global Test 
+        Test = QtWidgets.QMainWindow()
+        ui = Ui_Test()
+        ui.setupUi(Test, quest)
+        app.aboutToQuit.connect(ui.closeEvent)
+        Test.show()
 
-    ui_2.pushButton_2.clicked.connect(returnToMain)
-    ui_2.pushButton.clicked.connect(lambda: record(ui_2, Tests[0], text))
+        ui.pushButton_next.clicked.connect(lambda: next_test(quest, Test, ui))
+        ui.pushButton_back.clicked.connect(lambda: back_test(quest, Test))
+    
+    def result(name_button, ui):
 
-def open_result(text):
-    global Test
-    Test = QtWidgets.QMainWindow()
-    ui_2 =  Ui_Result()
-    ui_2.setupUi(Test, text)
-    Test.show()
-    Tests.append(Test)
-    MainWindow.close()
+        if (name_button == "Блок интелекта"):
+            test_name = test_name_intell
+            count = 3 
+        elif (name_button == "Блок профориент."):
+            test_name = test_name_prof
+            count = 3
+        elif (name_button == "Блок личности"):
+            test_name = test_name_lich
+            count = 3
+        else:
+            test_name = test_name_all
+            count = 6
 
-    def returnToMain():
-        Test.close()
-        MainWindow.show()
+        check = check_test_result(user_id, test_name, count)
 
-    ui_2.pushButton.clicked.connect(returnToMain)
+        if check == -1:
+            if count == 3:
+                ui.err_msg()
+            else:
+                ui.err_msg_all()
+        else:
+            open_result(name_button)
+    
+    def open_result(name_button):
+        global Test
+        Test = QtWidgets.QMainWindow()
+        ui_2 = Ui_Result()
+        ui_2.setupUi(Test, name_button, user_id)
+        Test.show()
 
-ui.pushButton.clicked.connect(lambda: open_test(ui.pushButton.text()))
-ui.pushButton_4.clicked.connect(lambda: open_test(ui.pushButton_4.text()))
-ui.pushButton_10.clicked.connect(lambda: open_result(ui.pushButton_10.text()))
-ui.pushButton_13.clicked.connect(lambda: open_result(ui.pushButton_13.text()))
+        def returnToMain():
+            Test.close()
+
+        ui_2.pushButton.clicked.connect(returnToMain)
+
+
+    # Активации кнопок тестов главного окна
+    ui.pushButton_ayzenk.clicked.connect(lambda: init_test(ui.pushButton_ayzenk.text()))
+    ui.pushButton_all_result.clicked.connect(lambda: result(ui.pushButton_all_result.text(), ui))
+    ui.pushButton_block_lich.clicked.connect(lambda: result(ui.pushButton_block_lich.text(), ui))
+    ui.pushButton_block_proforient.clicked.connect(lambda: result(ui.pushButton_block_proforient.text(), ui))
+    ui.pushButton_block_intell.clicked.connect(lambda: result(ui.pushButton_block_intell.text(), ui))
+
+    # Активации кнопок результатов главного окна
+
+
+# Активации главного окна
+ui.pushButton_enter.clicked.connect(lambda: check_user_id(ui))
+
 
 sys.exit(app.exec_())

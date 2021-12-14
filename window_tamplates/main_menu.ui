@@ -14,46 +14,46 @@
    <string>Система профориентации</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="label_proforient">
     <property name="geometry">
      <rect>
-      <x>193</x>
+      <x>213</x>
       <y>65</y>
-      <width>166</width>
-      <height>18</height>
+      <width>141</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Профориентированность</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_2">
+   <widget class="QLabel" name="label_sruct_intel">
     <property name="geometry">
      <rect>
-      <x>24</x>
+      <x>39</x>
       <y>65</y>
-      <width>136</width>
-      <height>18</height>
+      <width>121</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Структура интелекта</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="label_type_lich">
     <property name="geometry">
      <rect>
-      <x>416</x>
+      <x>423</x>
       <y>65</y>
-      <width>88</width>
-      <height>18</height>
+      <width>81</width>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
      <string>Тип личности</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="pushButton_ayzenk">
     <property name="geometry">
      <rect>
       <x>27</x>
@@ -66,7 +66,7 @@
      <string>Айзенк</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="pushButton_holland">
     <property name="geometry">
      <rect>
       <x>211</x>
@@ -79,7 +79,7 @@
      <string>Дж. Голонда</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="pushButton_tomas_kliman">
     <property name="geometry">
      <rect>
       <x>395</x>
@@ -92,7 +92,7 @@
      <string>Томас-Килманн</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_4">
+   <widget class="QPushButton" name="pushButton_kettel">
     <property name="geometry">
      <rect>
       <x>27</x>
@@ -105,7 +105,7 @@
      <string>Кеттелл</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="pushButton_unga">
     <property name="geometry">
      <rect>
       <x>395</x>
@@ -118,7 +118,7 @@
      <string>Юнга</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_6">
+   <widget class="QPushButton" name="pushButton_klimov">
     <property name="geometry">
      <rect>
       <x>211</x>
@@ -131,7 +131,7 @@
      <string>Е. А. Климова</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_7">
+   <widget class="QPushButton" name="pushButton_ryzapkina">
     <property name="geometry">
      <rect>
       <x>211</x>
@@ -144,7 +144,7 @@
      <string>Г. В. Рязапкина </string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_8">
+   <widget class="QPushButton" name="pushButton_brigs_mayers">
     <property name="geometry">
      <rect>
       <x>395</x>
@@ -157,7 +157,7 @@
      <string>Бриггс-Майерс</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_9">
+   <widget class="QPushButton" name="pushButton_veksler">
     <property name="geometry">
      <rect>
       <x>27</x>
@@ -170,7 +170,7 @@
      <string>Векслер</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QLabel" name="label_Type_test">
     <property name="geometry">
      <rect>
       <x>171</x>
@@ -191,7 +191,7 @@
      <string>Типы тестирования:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_10">
+   <widget class="QPushButton" name="pushButton_block_intell">
     <property name="geometry">
      <rect>
       <x>26</x>
@@ -204,7 +204,7 @@
      <string>Блок интелекта</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_11">
+   <widget class="QPushButton" name="pushButton_block_lich">
     <property name="geometry">
      <rect>
       <x>394</x>
@@ -217,7 +217,7 @@
      <string>Блок личности</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_12">
+   <widget class="QPushButton" name="pushButton_block_proforient">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -230,7 +230,7 @@
      <string>Блок профориент.</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="label_result">
     <property name="geometry">
      <rect>
       <x>171</x>
@@ -251,13 +251,13 @@
      <string>Результаты:</string>
     </property>
     <property name="textFormat">
-     <enum>Qt::MarkdownText</enum>
+     <enum>Qt::PlainText</enum>
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_13">
+   <widget class="QPushButton" name="pushButton_all_result">
     <property name="geometry">
      <rect>
       <x>20</x>

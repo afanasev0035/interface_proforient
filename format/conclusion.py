@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QMessageBox, QVBoxLayout
 from db_test import *
 
 class Ui_Result(object):
-     def setupUi(self, Result, text):
+     def setupUi(self, Result, text, user_id):
         Result.setObjectName(text)
         Result.resize(687, 413)
         self.centralwidget = QtWidgets.QWidget(Result)
@@ -56,16 +56,15 @@ class Ui_Result(object):
         self.verticalLayout.addWidget(self.pushButton)
         Result.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(Result, text)
+        self.retranslateUi(Result, text, user_id)
         QtCore.QMetaObject.connectSlotsByName(Result)
 
-     def retranslateUi(self, Result, text):
+     def retranslateUi(self, Result, name_button, user_id):
         _translate = QtCore.QCoreApplication.translate
-        Result.setWindowTitle(_translate("Result", text))
+        Result.setWindowTitle(_translate("Result", name_button))
         self.pushButton.setText(_translate("Result", "Назад"))
-        db = str_db()
-        db.init_v3(text)
-        self.label_2.setText(_translate("Result", db.concl))
-        if (text != "Обобщенный результат"):
-            text = "Вывод: " + text
-        self.label.setText(_translate("Result", text))
+        conclusion = get_conclusion(name_button, user_id)
+        self.label_2.setText(_translate("Result", conclusion))
+        if (name_button != "Обобщенный результат"):
+            name_button = "Вывод: " + name_button
+        self.label.setText(_translate("Result", name_button))
